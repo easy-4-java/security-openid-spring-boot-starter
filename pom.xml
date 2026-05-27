@@ -6,13 +6,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.1</version>
+		<version>3.4.13</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
 	<artifactId>security-openid-spring-boot-starter</artifactId>
 	<description>Spring Boot Starter For Spring Security With OpenID</description>
-	<version>4.0.x.20260527-SNAPSHOT</version>
+	<version>3.4.x.20260527-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
 	<url>https://github.com/hiwepy/${project.artifactId}</url>
 	<packaging>jar</packaging>
