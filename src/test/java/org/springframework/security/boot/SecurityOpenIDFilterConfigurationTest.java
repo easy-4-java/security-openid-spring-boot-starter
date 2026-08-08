@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Unit tests for {{ @link SecurityOpenIDFilterConfiguration }}.
  *
- * @author wandl
+ * @author [@Loong Wan](https://github.com/loong10k)
  * @since 1.0.0
  */
 @DisplayName("SecurityOpenIDFilterConfiguration Tests")
