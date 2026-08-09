@@ -52,6 +52,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 @ConditionalOnWebApplication
 @ConditionalOnProperty(prefix = SecurityOpenIDProperties.PREFIX, value = "enabled", havingValue = "true")
 @EnableConfigurationProperties({ SecurityOpenIDProperties.class, SecurityBizProperties.class, ServerProperties.class })
+/**\n * Filter configuration for OpenID-based security authentication.\n *\n * @author [@Loong Wan](https://github.com/loong10k)\n * @since 1.0.0\n */
 public class SecurityOpenIDFilterConfiguration {
     
 	@Bean
