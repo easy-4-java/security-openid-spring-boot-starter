@@ -26,7 +26,7 @@ import org.springframework.security.core.AuthenticationException;
 
 /**
  * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 public class OpenIDMatchedAuthenticationEntryPoint implements MatchedAuthenticationEntryPoint {
 
