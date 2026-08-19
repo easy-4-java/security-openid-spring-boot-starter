@@ -27,16 +27,32 @@ import org.springframework.security.core.AuthenticationException;
 /**
  * TODO
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
  */
 public class OpenIDMatchedAuthenticationEntryPoint implements MatchedAuthenticationEntryPoint {
 
 	
+	/**
+	 * Determines whether supports.
+	 *
+	 * @param e the e
+	 * @return the result
+	 */
 	@Override
 	public boolean supports(AuthenticationException e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/**
+	 * commence.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @param authException the auth exception
+	 * @throws IOException if an error occurs
+	 * @throws ServletException if an error occurs
+	 */
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException authException) throws IOException, ServletException {

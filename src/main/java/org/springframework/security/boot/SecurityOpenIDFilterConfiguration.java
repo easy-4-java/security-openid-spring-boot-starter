@@ -56,18 +56,36 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
  */
 public class SecurityOpenIDFilterConfiguration {
 
+	/**
+	 * consumer Manager.
+	 *
+	 * @return the result
+	 */
 	@Bean
 	@ConditionalOnMissingBean
 	public ConsumerManager consumerManager() {
 		return new ConsumerManager();
 	}
 
+	/**
+	 * attributes To Fetch Factory.
+	 *
+	 * @return the result
+	 */
 	@Bean
 	@ConditionalOnMissingBean
 	public AxFetchListFactory attributesToFetchFactory() {
 		return new NullAxFetchListFactory();
 	}
 
+	/**
+	 * open I D Consumer.
+	 *
+	 * @param consumerManager the consumer manager
+	 * @param attributesToFetchFactory the attributes to fetch factory
+	 * @return the result
+	 * @throws ConsumerException if an error occurs
+	 */
 	@Bean
 	@ConditionalOnMissingBean
 	public OpenIDConsumer openIDConsumer(ConsumerManager consumerManager,
@@ -75,6 +93,13 @@ public class SecurityOpenIDFilterConfiguration {
 		return new OpenID4JavaConsumer(consumerManager, attributesToFetchFactory);
 	}
 
+	/**
+	 * open I D Authentication Provider.
+	 *
+	 * @param openIDAuthcUserDetailsService the open i d authc user details service
+	 * @param authoritiesMapper the authorities mapper
+	 * @return the result
+	 */
 	@Bean
 	public OpenIDAuthenticationProvider openIDAuthenticationProvider(
 			OpenIDAuthcUserDetailsService openIDAuthcUserDetailsService,
@@ -145,6 +170,12 @@ public class SecurityOpenIDFilterConfiguration {
 			this.consumerManager = consumerManagerProvider.getIfAvailable();
 		}
 
+		/**
+		 * authentication Processing Filter.
+		 *
+		 * @return the result
+		 * @throws Exception if an error occurs
+		 */
 		public OpenIDAuthenticationFilter authenticationProcessingFilter() throws Exception {
 			OpenIDAuthenticationFilter authenticationFilter = new OpenIDAuthenticationFilter();
 			PropertyMapper map = PropertyMapper.get();
@@ -162,6 +193,13 @@ public class SecurityOpenIDFilterConfiguration {
 			return authenticationFilter;
 		}
 
+		/**
+		 * open ID Security Filter Chain.
+		 *
+		 * @param http the http
+		 * @return the result
+		 * @throws Exception if an error occurs
+		 */
 		@Bean
 		@Order(Ordered.HIGHEST_PRECEDENCE + 7)
 		public SecurityFilterChain openIdSecurityFilterChain(HttpSecurity http) throws Exception {
